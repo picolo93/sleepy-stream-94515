@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+</head>
+<body>
+    <div th:fragment="navbar (opt1,opt2,opt3,lien2,lien3)">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a class="navbar-brand" href="/" th:text="${opt1}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="${lien2}"  th:text="${opt2}"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="${lien3}" th:text="${opt3}"></a>
+                    </li>
+                </ul>
+            </div>  
+        </nav>
+    </div>
+    <div th:fragment="langue">  
+        <h1 th:text="#{lang.msg}"></h1>
+        <form action="/">
+            <span th:text="#{lang.change}"></span>:
+            <select id="locales" name="lang" onchange="this.form.submit()">
+                <option value="fr" th:text="#{lang.fr}"></option>
+                <option value="en" th:text="#{lang.eng}"></option>
+                <option value="us" th:text="#{lang.us}"></option>
+            </select>
+         </form>
+
+    </div>
+</body>
+</html>
