@@ -4,9 +4,9 @@ import metier.Lieu;
 import java.sql.*;
 import java.util.*;
 
-public class LieuDAO extends DAO<Lieu> {
+public class LieuDAO {
 
-    @Override
+   /* @Override
     public Lieu create(Lieu obj) throws Exception {
         try (PreparedStatement pstm1 = dbConnect.prepareStatement("insert into LIEU (CODE_AERO,CODE_PORT,NOM,VILLE,PAYS)values(?,?,?,?,?)")) {
             pstm1.setString(3, obj.getNom());
@@ -42,14 +42,14 @@ public class LieuDAO extends DAO<Lieu> {
                 System.out.println("ok6");
                 throw new Exception("record introuvable");
             }*/
-            return null;
+       /*     return null;
         } catch (Exception e) {
             throw new Exception("Erreur de création " + e.getMessage());
         }
-    }
+    }*/
 
-    @Override
-    public Lieu read(int id) throws Exception {
+    //@Override
+  /*  public Lieu read(int id) throws Exception {
 
         try (PreparedStatement pstm = dbConnect.prepareStatement("select * from LIEU where idlieu = ?")) {
             pstm.setInt(1,id);
@@ -67,16 +67,16 @@ public class LieuDAO extends DAO<Lieu> {
                 } else {
                     return new Lieu(code_aero, nom, ville, pays);
                 }*/
-            } else {
+          /*  } else {
                 throw new Exception("Code inconnu");
             }
         } catch (Exception e) {
             throw new Exception("Erreur de lecture " + e.getMessage());
         }
-    }
+    }*/
 
-    @Override
-    public Lieu update(Lieu obj) throws Exception {
+  //  @Override
+   /* public Lieu update(Lieu obj) throws Exception {
 
         try (PreparedStatement pstm1 = dbConnect.prepareStatement("update LIEU set nom=?,ville=?,pays=? where code_aero = ? or code_port = ?")) {
 
@@ -94,10 +94,10 @@ public class LieuDAO extends DAO<Lieu> {
         } catch (Exception e) {
             throw new Exception("Erreur de mise à jour " + e.getMessage());
         }
-    }
+    }*/
 
-    @Override
-    public void delete(Lieu obj) throws Exception {
+   // @Override
+   /* public void delete(Lieu obj) throws Exception {
         try (PreparedStatement pstm = dbConnect.prepareStatement("delete from Lieu where code_aero = ? OR code_port = ?")) {
             pstm.setString(1, obj.getCode());
             pstm.setString(2, obj.getCode());
@@ -108,10 +108,10 @@ public class LieuDAO extends DAO<Lieu> {
         } catch (Exception e) {
             throw new Exception("Erreur d'effacement " + e.getMessage());
         }
-    }
+    }*/
 
-    @Override
-    public List<Lieu> readall() throws Exception {
+   // @Override
+   /* public List<Lieu> readall() throws Exception {
         List<Lieu> list = new ArrayList<>();
         try (PreparedStatement pstm = dbConnect.prepareStatement("select * from lieu")) {
             ResultSet rs = pstm.executeQuery();
@@ -125,5 +125,5 @@ public class LieuDAO extends DAO<Lieu> {
             System.out.println(e.getMessage());
         }
         return list;
-    } 
+    } */
 }
