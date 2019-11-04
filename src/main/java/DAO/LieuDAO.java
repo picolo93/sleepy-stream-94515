@@ -4,7 +4,7 @@ import metier.Lieu;
 import java.sql.*;
 import java.util.*;
 
-public class LieuDAO {
+public class LieuDAO extends DAO<Lieu>  {
 
    /* @Override
     public Lieu create(Lieu obj) throws Exception {

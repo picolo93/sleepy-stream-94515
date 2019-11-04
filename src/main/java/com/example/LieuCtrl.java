@@ -34,9 +34,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/lieu")
 public class LieuCtrl {
-
     
-
     @Autowired
     private DataSource dataSource;
 
