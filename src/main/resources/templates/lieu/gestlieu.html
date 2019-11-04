@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Gestion de clients</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div th:replace="~{fragments/debut :: navbar(opt1='general',opt2='ajout client',opt3='gestion client',lien2='nouvcli',lien3='rechcli')}"></div>
+        <div th:replace="~{fragments/debut :: langue}"></div>
+        <div class="container">
+            <th:block th:switch="${mode}">
+                <div th:case="'nouvcli'">
+                    <form action="addcli" method="post" class="form-horizontal">
+                        <div class="form-group row">
+                            <label class="control-label col-md-3" th:text="#{cli.nom}"></label>
+                            <div class ="col-md-7">
+                                <input type ="text" class="form-control" name="nom" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3" th:text="#{cli.prenom}"></label>
+                            <div class ="col-md-7">
+                                <input type ="text" class="form-control" name="prenom"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3" th:text="#{cli.cp}"></label>
+                            <div class ="col-md-7">
+                                 <input type ="text" class="form-control" name="cp"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3" th:text="#{cli.loc}"></label>
+                            <div class ="col-md-7">
+                                <input type ="text" class="form-control" name="loc"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3" th:text="#{cli.rue}"></label>
+                            <div class ="col-md-7">
+                                <input type ="text" class="form-control" name="rue"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                             <label class="control-label col-md-3" th:text="#{cli.num}"></label>
+                             <div class ="col-md-7">
+                                <input type ="text" class="form-control" name="num"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3" th:text="#{cli.tel}"></label>
+                            <div class ="col-md-7">
+                                <input type ="text" class="form-control" name="tel"/>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <input type ="submit" th:value="#{cli.creer}" class="btn btn-primary"/>
+                        </div>
+                    </form>
+                </div>
+                <div th:case = "'affnouvcli'">
+                    client créé :<br>
+                    <ul>
+                        <li th:text="${monClient.idclient}"/>
+                        <li th:text="${monClient.nom}"/>
+                        <li th:text="${monClient.prenom}"/>
+                        <li th:text="${monClient.tel}"/>
+                    </ul>
+                </div>
+                <div th:case="'erreur'">
+                    ERREUR :  <div th:text="${erreur}"/> 
+                </div>
+                <div th:case="'rechcli'">
+                    <h1>RECHERCHE CLIENT</h1>
+                    <form action="recherche">
+                        NOM RECHERCHE :   <input type="text" name="nrech"/>
+                        <input type="submit" value ="rechercher" name="rechercher"/>
+                   </form>
+                </div>
+                <div th:case="'clistrouves'">
+                    <div th:if="${mesClients.empty}">
+
+                         AUCUN CLIENT TROUVE<p>
+
+                    </div>
+                     <div th:unless="${mesClients.empty}" >
+                            <form th:action="${mode2}=='affichage'?'selection':'changement'">
+                                <table class="table table-striped">
+                                     <caption>clients trouvés </caption>
+                                     <th>CHOIX</th>
+                                     <th>NOM</th>
+                                     <th>PRENOM</th>
+                                     <th>TELEPHONE</th>
+                                     <tr th:each="unClient : ${mesClients}">
+                                     <td>
+                                        <input type="radio" name="numcli" th:value="${unClient.idclient}" checked="checked">
+                                         </td>
+                                         <td th:text="${unClient.nom}"/>
+                                         <td th:text="${unClient.prenom}"/>
+                                         <td>
+                                            <span th:if="${mode2}!='edition' or ${unClient.idclient} != ${monClient.idclient}"th:text="${unClient.tel}"/>
+                                            <span th:if="${mode2}=='edition' and ${unClient.idclient} == ${monClient.idclient}">
+                                                <input type="text" name="tel" th:value="${unClient.tel}"/>
+                                            </span>
+                                         </td>
+                                    </tr>
+                                </table>
+                                <input type="submit" name="ok" value="ok" class="btn btn-primary"/>
+                            </form>
+                            </div>
+                        </div>
+
+ 
+            </th:block>
+         </div>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </body>
+</html>

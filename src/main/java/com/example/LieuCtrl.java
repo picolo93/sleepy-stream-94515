@@ -47,7 +47,7 @@ public class LieuCtrl {
     private Lieu lieu;
     
      @Autowired
-    private List<Lieu> listeClients;
+    private List<Lieu> listeLiieu;
 
     
 
@@ -57,10 +57,8 @@ public class LieuCtrl {
     }
 
    
-
     @RequestMapping("/nouvlieu")
     String nouvcli( Map<String, Object> model) {
-
         model.put("mode","nouvlieu");
         return "lieu/gestlieu";
     }
