@@ -35,11 +35,11 @@ public class LieuCtrl {
   //  @Autowired
   //  private LieuDAO ldao;
     
-   // @Autowired
-   // private Lieu lieu;
+    @Autowired
+    private Lieu lieu;
     
-   //  @Autowired
-  //  private List<Lieu> listeLieu;
+     @Autowired
+     private List<Lieu> listeLieu;
 
     
 
@@ -55,8 +55,8 @@ public class LieuCtrl {
         return "lieu/gestlieu";
     }
     
-   /*   @RequestMapping("/addcli")
-    String ajout(
+   /*@RequestMapping("/addcli")
+     String ajout(
             @RequestParam("nom") String nom,
             @RequestParam("prenom") String prenom, 
             @RequestParam("cp") String cps,
