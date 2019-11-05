@@ -26,7 +26,7 @@ public class Racine {
 
     @RequestMapping("/")
     String index() {
-        return "index";
+        return "db";
     }
 
    

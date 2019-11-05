@@ -25,7 +25,6 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import DAO.LieuDAO;
 import metier.Lieu;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -38,8 +37,8 @@ public class LieuCtrl {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    private LieuDAO ldao;
+  //  @Autowired
+  //  private LieuDAO ldao;
     
     @Autowired
     private Lieu lieu;
