@@ -11,56 +11,56 @@
         <div th:replace="~{fragments/debut :: langue}"></div>
         <div class="container">
             <th:block th:switch="${mode}">
-                <div th:case="'nouvcli'">
+                <div th:case="'nouvlieu'">
                     <form action="addcli" method="post" class="form-horizontal">
                         <div class="form-group row">
-                            <label class="control-label col-md-3" th:text="#{cli.nom}"></label>
+                            <label class="control-label col-md-3" th:text="nom"></label>
                             <div class ="col-md-7">
                                 <input type ="text" class="form-control" name="nom" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3" th:text="#{cli.prenom}"></label>
+                            <label class="control-label col-md-3" th:text="prenom"></label>
                             <div class ="col-md-7">
                                 <input type ="text" class="form-control" name="prenom"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3" th:text="#{cli.cp}"></label>
+                            <label class="control-label col-md-3" th:text="code postal"></label>
                             <div class ="col-md-7">
                                  <input type ="text" class="form-control" name="cp"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3" th:text="#{cli.loc}"></label>
+                            <label class="control-label col-md-3" th:text="localisation"></label>
                             <div class ="col-md-7">
                                 <input type ="text" class="form-control" name="loc"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3" th:text="#{cli.rue}"></label>
+                            <label class="control-label col-md-3" th:text="rue"></label>
                             <div class ="col-md-7">
                                 <input type ="text" class="form-control" name="rue"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                             <label class="control-label col-md-3" th:text="#{cli.num}"></label>
+                             <label class="control-label col-md-3" th:text="num"></label>
                              <div class ="col-md-7">
                                 <input type ="text" class="form-control" name="num"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3" th:text="#{cli.tel}"></label>
+                            <label class="control-label col-md-3" th:text="tel"></label>
                             <div class ="col-md-7">
                                 <input type ="text" class="form-control" name="tel"/>
                             </div>
                         </div>
                         <div class="pull-right">
-                            <input type ="submit" th:value="#{cli.creer}" class="btn btn-primary"/>
+                            <input type ="submit" th:value="creer" class="btn btn-primary"/>
                         </div>
                     </form>
                 </div>
-                <div th:case = "'affnouvcli'">
+                <div th:case = "'affnouvlieu'">
                     client créé :<br>
                     <ul>
                         <li th:text="${monClient.idclient}"/>

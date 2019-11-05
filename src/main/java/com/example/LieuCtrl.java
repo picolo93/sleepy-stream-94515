@@ -45,7 +45,7 @@ public class LieuCtrl {
     private Lieu lieu;
     
      @Autowired
-    private List<Lieu> listeLiieu;
+    private List<Lieu> listeLieu;
 
     
 

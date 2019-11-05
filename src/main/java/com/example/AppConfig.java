@@ -38,7 +38,7 @@ public class AppConfig implements WebMvcConfigurer{
         registry.addInterceptor(localeChangeInterceptor());
    }
    
-      @Bean //singleton par défaut
+     @Bean //singleton par défaut
     public DataSource dataSource() throws SQLException {
         if (dbUrl == null || dbUrl.isEmpty()) {
             return new HikariDataSource();
