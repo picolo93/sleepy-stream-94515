@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     </head>
     <body>
-        <div th:replace="~{fragments/debut :: navbar(opt1='general',opt2='ajout client',opt3='gestion client',lien2='nouvcli',lien3='rechcli')}"></div>
+        <div th:replace="~{fragments/debut :: navbar(opt1='general',opt2='ajout lieu',opt3='gestion lieu',lien2='nouvlieu',lien3='rechlieu')}"></div>
         <div th:replace="~{fragments/debut :: langue}"></div>
         <div class="container">
             <th:block th:switch="${mode}">

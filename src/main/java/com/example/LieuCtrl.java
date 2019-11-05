@@ -35,11 +35,11 @@ public class LieuCtrl {
   //  @Autowired
   //  private LieuDAO ldao;
     
-    @Autowired
-    private Lieu lieu;
+   // @Autowired
+   // private Lieu lieu;
     
-     @Autowired
-    private List<Lieu> listeLieu;
+   //  @Autowired
+  //  private List<Lieu> listeLieu;
 
     
 
