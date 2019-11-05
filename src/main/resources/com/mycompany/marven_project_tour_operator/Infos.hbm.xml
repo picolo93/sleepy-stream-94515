@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-sept.-2019 16:10:08 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.marven_project_tour_operator.Infos" table="infos" schema="public" optimistic-lock="version">
+        <id name="idInfo" type="int">
+            <column name="id_info" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="deplacement" class="com.mycompany.marven_project_tour_operator.Deplacement" fetch="select">
+            <column name="id_dep" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="voyage" class="com.mycompany.marven_project_tour_operator.Voyage" fetch="select">
+            <column name="id_voyage" not-null="true" />
+        </many-to-one>
+        <property name="numeroOrdre" type="java.lang.Integer">
+            <column name="numero_ordre" />
+        </property>
+    </class>
+</hibernate-mapping>

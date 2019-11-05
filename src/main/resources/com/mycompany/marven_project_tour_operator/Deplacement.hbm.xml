@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-sept.-2019 16:10:08 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.marven_project_tour_operator.Deplacement" table="deplacement" schema="public" optimistic-lock="version">
+        <id name="idDep" type="int">
+            <column name="id_dep" />
+            <generator class="sequence">
+                <param name="sequence">id_dep_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="lieuByIdlieuArr" class="com.mycompany.marven_project_tour_operator.Lieu" fetch="select">
+            <column name="idlieu_arr" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lieuByIdlieuDep" class="com.mycompany.marven_project_tour_operator.Lieu" fetch="select">
+            <column name="idlieu_dep" not-null="true" />
+        </many-to-one>
+        <property name="prix" type="big_decimal">
+            <column name="prix" precision="131089" scale="0" />
+        </property>
+        <property name="dateHeureDepart" type="timestamp">
+            <column name="date_heure_depart" length="29" />
+        </property>
+        <property name="dateHeureArrive" type="timestamp">
+            <column name="date_heure_arrive" length="29" />
+        </property>
+        <property name="codeVol" type="string">
+            <column name="code_vol" length="128" unique="true" />
+        </property>
+        <property name="codeNav" type="string">
+            <column name="code_nav" length="128" unique="true" />
+        </property>
+        <set name="infoses" table="infos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_dep" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.mycompany.marven_project_tour_operator.Infos" />
+        </set>
+    </class>
+</hibernate-mapping>

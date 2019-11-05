@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-sept.-2019 16:10:08 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.marven_project_tour_operator.Lieu" table="lieu" schema="public" optimistic-lock="version">
+        <id name="idlieu" type="int">
+            <column name="idlieu" />
+            <generator class="sequence">
+                <param name="sequence">lieu_idlieu_seq</param>
+            </generator>
+        </id>
+        <property name="codeAero" type="string">
+            <column name="code_aero" length="128" unique="true" />
+        </property>
+        <property name="codePort" type="string">
+            <column name="code_port" length="128" unique="true" />
+        </property>
+        <property name="nom" type="string">
+            <column name="nom" length="128" />
+        </property>
+        <property name="ville" type="string">
+            <column name="ville" length="128" />
+        </property>
+        <property name="pays" type="string">
+            <column name="pays" length="128" />
+        </property>
+        <set name="deplacementsForIdlieuArr" table="deplacement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idlieu_arr" not-null="true" />
+            </key>
+            <one-to-many class="com.mycompany.marven_project_tour_operator.Deplacement" />
+        </set>
+        <set name="deplacementsForIdlieuDep" table="deplacement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idlieu_dep" not-null="true" />
+            </key>
+            <one-to-many class="com.mycompany.marven_project_tour_operator.Deplacement" />
+        </set>
+    </class>
+</hibernate-mapping>

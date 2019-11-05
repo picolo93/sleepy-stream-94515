@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-sept.-2019 16:10:08 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.marven_project_tour_operator.Voyage" table="voyage" schema="public" optimistic-lock="version">
+        <id name="idVoyage" type="int">
+            <column name="id_voyage" />
+            <generator class="assigned" />
+        </id>
+        <property name="codeVoyage" type="string">
+            <column name="code_voyage" length="32" unique="true" />
+        </property>
+        <property name="nom" type="string">
+            <column name="nom" length="32" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="32" />
+        </property>
+        <set name="infoses" table="infos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_voyage" not-null="true" />
+            </key>
+            <one-to-many class="com.mycompany.marven_project_tour_operator.Infos" />
+        </set>
+    </class>
+</hibernate-mapping>
