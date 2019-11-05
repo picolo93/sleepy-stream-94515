@@ -16,19 +16,14 @@
 package com.example;
 
 
+import java.util.List;
+import metier.Lieu;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import metier.Lieu;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/lieu")
@@ -55,7 +50,7 @@ public class LieuCtrl {
 
    
     @RequestMapping("/nouvlieu")
-    String nouvcli( Map<String, Object> model) {
+    String nouvlieu( Map<String, Object> model) {
         model.put("mode","nouvlieu");
         return "lieu/gestlieu";
     }
