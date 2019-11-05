@@ -51,7 +51,7 @@ public class LieuCtrl {
 
     @RequestMapping("/")
     String index() {
-        return "lieu/gestlieu";
+        return "index";
     }
 
    

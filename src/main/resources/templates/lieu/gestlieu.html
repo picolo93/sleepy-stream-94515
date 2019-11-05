@@ -12,7 +12,7 @@
         <div class="container">
             <th:block th:switch="${mode}">
                 <div th:case="'nouvlieu'">
-                    <form action="addcli" method="post" class="form-horizontal">
+                    <form action="addlieu" method="post" class="form-horizontal">
                         <div class="form-group row">
                             <label class="control-label col-md-3" th:text="nom"></label>
                             <div class ="col-md-7">
@@ -60,7 +60,7 @@
                         </div>
                     </form>
                 </div>
-                <div th:case = "'affnouvlieu'">
+              <!--  <div th:case = "'affnouvlieu'">
                     client créé :<br>
                     <ul>
                         <li th:text="${monClient.idclient}"/>
@@ -110,7 +110,7 @@
                                 <input type="submit" name="ok" value="ok" class="btn btn-primary"/>
                             </form>
                             </div>
-                        </div>
+                        </div>-->
 
             </th:block>
          </div>
